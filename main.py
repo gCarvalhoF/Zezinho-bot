@@ -1,6 +1,9 @@
 import discord
 from discord.ext import commands
-import secrets as var
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 intents = discord.Intents().all()
 bot = commands.Bot(command_prefix=";", intents=intents)
@@ -75,4 +78,4 @@ async def on_message(message):
                     await bot_member.edit(deafen=True)
 
 
-bot.run(var.token)
+bot.run(os.getenv('TOKEN'))
